@@ -4,41 +4,46 @@
 </head>
 <body>
 
-<div th:replace="fragments :: page-header"></div>
+<!--  <th:block th:with="previousSearchType = ${searchType == null ? 'all' : previousSearchType}">  -->
 
-<div class="container body-content">
+    <div th:replace="fragments :: page-header"></div>
 
-    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+    <div class="container body-content">
 
-    <form th:action="@{/search/results}" method = "post">
-        <h2>Search by:</h2>
+        <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
-        <p>
-            <span th:each="column : ${columns}">
-                <input
+        <form th:action="@{/search/results}" method = "post">
+            <h2>Search by:</h2>
+
+            <p>
+                <span th:each="column : ${columns}">
+                    <input
                         type="radio"
                         name="searchType"
                         th:id="${column.key}"
                         th:value="${column.key}"
-                        th:checked="${column.key == 'all'}"/>
-                <label th:for="${column.key}" th:text="${column.value}"></label>
-            </span>
+                        th:checked="${column.key == previousSearchType}"/>
+<!--                        th:checked="${column.key == 'all'}"/>  -->
+                    <label th:for="${column.key}" th:text="${column.value}"></label>
+                </span>
 
-        </p>
+            </p>
 
-        <p>
-            <label for="searchTerm">Keyword:</label>
-            <input type="text" name="searchTerm" id="searchTerm" />
-        </p>
+            <p>
+                <label for="searchTerm">Keyword:</label>
+                <input type="text" name="searchTerm" id="searchTerm" />
+            </p>
 
-        <input type="submit" value="Search" />
-    </form>
+            <input type="submit" value="Search" />
+        </form>
 
-    <hr />
+        <hr />
 
-    <!-- TODO #4 - Loop over the search results to display all job fields. -->
+        <!-- TODO #4 - Loop over the search results to display all job fields. -->
+        <table th:replace="list-jobs :: results"></table>
+    </div>
 
-</div>
+<!--  </th:block>  -->
 
 </body>
 </html>
