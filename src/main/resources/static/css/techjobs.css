@@ -44,3 +44,20 @@ label {
 .centered {
     text-align: center;
 }
+
+/* span {
+color: red;
+} */
+
+#test {
+color: green;
+}
+
+.blue {
+color: blue;
+}
+
+.fontfam {
+font-family: cursive;
+color: red;
+}

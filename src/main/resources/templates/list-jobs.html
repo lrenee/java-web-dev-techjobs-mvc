@@ -23,9 +23,9 @@
 <!--                </td>-->
                 <td th:utext="${'ID: ' + jobs.id + '<br />' +
                 'Name: ' + #strings.toUpperCase(jobs.name) + '<br />' +
-                'Employer: ' + jobs.employer + '<br />' +
+                'Employer: ' + '<span class = &quot;blue&quot;>' + jobs.employer + '</span>' + '<br />' +
                 'Location: ' + jobs.location + '<br />' +
-                'Position Type: ' + jobs.positionType + '<br />' +
+                'Position Type: ' + '<span class = &quot;fontfam&quot;>' + jobs.positionType + '</span>' + '<br />' +
                 'Skill: ' + jobs.coreCompetency}"></td>
             </tr>
 
